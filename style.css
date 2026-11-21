@@ -1,0 +1,4210 @@
+/* =========================================================
+   CRUZEO PLAYZ - REAL CRICKET / GAMING WEBSITE
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 82px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #03070c;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #03070c;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #087fa5;
+    border-radius: 10px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 76px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9999;
+    background: rgba(2, 7, 13, 0.88);
+    border-bottom: 1px solid rgba(0, 200, 255, 0.16);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+}
+
+.logo-area img {
+    width: 43px;
+    height: 43px;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 200, 255, 0.55);
+    box-shadow: 0 0 18px rgba(0, 200, 255, 0.18);
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.logo-text span {
+    color: #00c8ff;
+}
+
+#navMenu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+#navMenu a {
+    position: relative;
+    color: #aebdca;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    transition: color 0.25s ease;
+}
+
+#navMenu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    background: #00c8ff;
+    box-shadow: 0 0 8px rgba(0, 200, 255, 0.6);
+    transition: width 0.25s ease;
+}
+
+#navMenu a:hover,
+#navMenu a.active {
+    color: #00c8ff;
+}
+
+#navMenu a:hover::after,
+#navMenu a.active::after {
+    width: 100%;
+}
+
+.menu-btn {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(0, 200, 255, 0.25);
+    border-radius: 9px;
+    background: rgba(0, 200, 255, 0.07);
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   COMMON SECTION
+   ========================================================= */
+
+.section-bg {
+    position: relative;
+    min-height: 100vh;
+    padding: 120px 6% 90px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.section-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+        circle at 50% 20%,
+        rgba(0, 180, 255, 0.08),
+        transparent 38%
+    );
+}
+
+.section-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(2, 7, 13, 0.72),
+        rgba(2, 7, 13, 0.93)
+    );
+}
+
+.section-content,
+.hero-layout,
+.quick-stats {
+    position: relative;
+    z-index: 2;
+}
+
+.home-bg {
+    background-image: url("assets/images/frontpage.jpeg");
+}
+
+.tournament-bg {
+    background-image: url("assets/images/2ndbackground.jpeg");
+}
+
+.leaderboard-bg {
+    background-image: url("assets/images/3rdbackg.jpeg");
+}
+
+.youtube-bg {
+    background-image: url("assets/images/youtubebackground.jpeg");
+}
+
+.community-bg {
+    background-image: url("assets/images/communitybackground.jpeg");
+}
+
+.section-content {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 45px;
+}
+
+.section-heading > span {
+    display: inline-block;
+    margin-bottom: 9px;
+    color: #00c8ff;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1.7px;
+}
+
+.section-heading h2 {
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.section-heading p {
+    margin-top: 11px;
+    color: #9aaebe;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.hero .section-overlay {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(2, 7, 13, 0.96) 0%,
+            rgba(2, 7, 13, 0.82) 32%,
+            rgba(2, 7, 13, 0.48) 54%,
+            rgba(2, 7, 13, 0.22) 72%,
+            rgba(2, 7, 13, 0.55) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(2, 7, 13, 0.30),
+            rgba(2, 7, 13, 0.88)
+        );
+}
+
+.hero-layout {
+    width: 100%;
+    max-width: 1250px;
+    min-height: 480px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    width: min(600px, 52%);
+    margin: 0;
+    text-align: left;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    border: 1px solid rgba(0, 200, 255, 0.28);
+    border-radius: 50px;
+    background: rgba(0, 200, 255, 0.07);
+    color: #00c8ff;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    box-shadow: 0 0 25px rgba(0, 200, 255, 0.04);
+}
+
+.hero h1 {
+    margin-top: 19px;
+    font-size: clamp(50px, 7vw, 88px);
+    line-height: 0.92;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 0 35px rgba(0, 190, 255, 0.16);
+}
+
+.hero h1 span {
+    display: block;
+    color: #00c8ff;
+    text-shadow:
+        0 0 18px rgba(0, 200, 255, 0.30),
+        0 0 45px rgba(0, 200, 255, 0.12);
+}
+
+.hero-line {
+    width: 85px;
+    height: 3px;
+    margin-top: 22px;
+    border-radius: 10px;
+    background: #00c8ff;
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.6);
+}
+
+.hero h2 {
+    margin-top: 20px;
+    color: #ffffff;
+    font-size: clamp(22px, 2.5vw, 31px);
+    line-height: 1.25;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+}
+
+.hero p {
+    max-width: 570px;
+    margin: 14px 0 0;
+    color: #b4c4d1;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.hero-buttons {
+    margin-top: 27px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hero-follow {
+    margin-top: 17px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #7f94a5;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.follow-dot {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #00c8ff;
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+    min-height: 46px;
+    padding: 12px 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn.primary {
+    background: #00c8ff;
+    color: #021018;
+    border: 1px solid #00c8ff;
+    box-shadow: 0 8px 25px rgba(0, 200, 255, 0.14);
+}
+
+.btn.primary:hover {
+    background: #35d5ff;
+    box-shadow: 0 12px 32px rgba(0, 200, 255, 0.24);
+}
+
+.btn.secondary {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.17);
+}
+
+.btn.secondary:hover {
+    border-color: rgba(0, 200, 255, 0.5);
+    background: rgba(0, 200, 255, 0.08);
+}
+
+
+/* =========================================================
+   QUICK STATS
+   ========================================================= */
+
+.quick-stats {
+    width: 100%;
+    max-width: 1050px;
+    margin: 25px auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.stat {
+    min-height: 100px;
+    padding: 18px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid rgba(0, 200, 255, 0.15);
+    border-radius: 14px;
+    background: rgba(3, 13, 22, 0.76);
+    backdrop-filter: blur(10px);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 200, 255, 0.4);
+    background: rgba(4, 19, 31, 0.9);
+}
+
+.stat strong {
+    color: #00c8ff;
+    font-size: 29px;
+    line-height: 1.1;
+    font-weight: 900;
+    text-shadow: 0 0 15px rgba(0, 200, 255, 0.2);
+}
+
+.stat span {
+    margin-top: 7px;
+    color: #899baa;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   TOURNAMENTS
+   ========================================================= */
+
+.tournament-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.tournament-card {
+    min-width: 0;
+    padding: 25px;
+    border-radius: 17px;
+    background: linear-gradient(
+        145deg,
+        rgba(6, 18, 29, 0.96),
+        rgba(2, 9, 16, 0.96)
+    );
+    border: 1px solid rgba(0, 200, 255, 0.15);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.32);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.tournament-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 200, 255, 0.45);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.42),
+        0 0 25px rgba(0, 180, 255, 0.05);
+}
+
+.tournament-card-content {
+    width: 100%;
+}
+
+.tournament-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 30px;
+    background: rgba(0, 200, 255, 0.08);
+    border: 1px solid rgba(0, 200, 255, 0.2);
+    color: #00c8ff;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.tournament-card h3 {
+    margin-top: 15px;
+    font-size: 24px;
+    line-height: 1.25;
+    font-weight: 900;
+}
+
+.tournament-card .season {
+    margin-top: 5px;
+    color: #00c8ff;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.winner-grid {
+    margin: 22px 0 18px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.winner-card {
+    padding: 15px;
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.winner-card span {
+    display: block;
+    color: #728697;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1.1px;
+}
+
+.winner-card strong {
+    display: block;
+    margin-top: 5px;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.tournament-details {
+    min-height: 42px;
+    margin-bottom: 18px;
+    color: #93a6b7;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.tournament-btn {
+    width: 100%;
+    min-height: 43px;
+    padding: 10px 15px;
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(0, 200, 255, 0.07);
+    color: #00c8ff;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.7px;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.tournament-btn:hover {
+    background: #00c8ff;
+    color: #021018;
+    transform: translateY(-2px);
+}
+
+.tournament-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    transform: none;
+}
+
+.tournament-btn:disabled:hover {
+    background: rgba(0, 200, 255, 0.07);
+    color: #00c8ff;
+}
+
+
+/* =========================================================
+   TOURNAMENT REGISTRATION
+   ========================================================= */
+
+.tournament-registration {
+    margin: 18px 0 15px;
+    padding: 14px 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.065);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.065);
+}
+
+.tournament-registration-info {
+    min-width: 0;
+}
+
+.tournament-registration-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #8ea3b5;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.tournament-registration-label::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #00e676;
+    box-shadow: 0 0 10px rgba(0, 230, 118, 0.85);
+}
+
+.tournament-registration-count {
+    display: block;
+    margin-top: 4px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.tournament-registration-status {
+    margin-top: 3px;
+    color: #00e676;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.tournament-registration-status.full {
+    color: #ffab00;
+}
+
+.tournament-registration-status.closed {
+    color: #ff4d5a;
+}
+
+
+/* =========================================================
+   TEAM TOURNAMENT REGISTRATION
+   ========================================================= */
+
+.team-registration-cta {
+    margin: 18px 0 15px;
+    padding: 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.065);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.065);
+}
+
+.team-registration-cta-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.team-registration-cta-title > span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #8ea3b5;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.team-registration-cta-title > span::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00e676;
+    box-shadow: 0 0 9px rgba(0, 230, 118, 0.8);
+}
+
+.team-registration-cta-title strong {
+    color: #00e676;
+    font-size: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.team-registration-counts {
+    margin-top: 11px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.team-registration-count {
+    padding: 11px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.team-registration-count span {
+    display: block;
+    color: #718697;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.team-registration-count strong {
+    display: block;
+    margin-top: 4px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.team-registration-count strong.available {
+    color: #00e676;
+}
+
+.team-registration-count strong.full {
+    color: #ffab00;
+}
+
+.team-registration-buttons {
+    margin-top: 11px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.team-registration-btn {
+    min-height: 41px;
+    padding: 9px 10px;
+    border-radius: 7px;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.team-registration-btn.captain {
+    color: #ffd76a;
+    border: 1px solid rgba(255, 191, 60, 0.42);
+    background: rgba(255, 191, 60, 0.065);
+}
+
+.team-registration-btn.captain:hover {
+    color: #211500;
+    background: #ffc83d;
+    border-color: #ffc83d;
+    box-shadow: 0 8px 22px rgba(255, 191, 60, 0.18);
+    transform: translateY(-2px);
+}
+
+.team-registration-btn.player {
+    color: #00e676;
+    border: 1px solid rgba(0, 230, 118, 0.42);
+    background: rgba(0, 230, 118, 0.065);
+}
+
+.team-registration-btn.player:hover {
+    color: #02150b;
+    background: #00e676;
+    border-color: #00e676;
+    box-shadow: 0 8px 22px rgba(0, 230, 118, 0.18);
+    transform: translateY(-2px);
+}
+
+.team-registration-btn:disabled {
+    color: #ff5252;
+    border-color: rgba(255, 82, 82, 0.35);
+    background: rgba(255, 82, 82, 0.055);
+    cursor: not-allowed;
+    opacity: 1;
+    transform: none;
+}
+
+.team-registration-btn:disabled:hover {
+    color: #ff5252;
+    background: rgba(255, 82, 82, 0.055);
+    border-color: rgba(255, 82, 82, 0.35);
+    box-shadow: none;
+    transform: none;
+}
+
+
+/* =========================================================
+   REGISTRATION ACTION BUTTON
+   ========================================================= */
+
+.registration-action-btn {
+    width: auto;
+    min-width: 145px;
+    min-height: 41px;
+    margin: 0;
+    padding: 9px 18px;
+    border-radius: 7px;
+    background: rgba(0, 230, 118, 0.07);
+    border: 1px solid rgba(0, 230, 118, 0.55);
+    color: #00e676;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow:
+        0 0 12px rgba(0, 230, 118, 0.07),
+        inset 0 0 12px rgba(0, 230, 118, 0.025);
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.registration-action-btn:hover {
+    background: #00e676;
+    border-color: #00e676;
+    color: #03120a;
+    box-shadow:
+        0 0 18px rgba(0, 230, 118, 0.45),
+        0 8px 25px rgba(0, 230, 118, 0.20);
+    transform: translateY(-2px);
+}
+
+.registration-action-btn:disabled {
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+.registration-action-btn:disabled:hover {
+    transform: none;
+}
+
+
+/* =========================================================
+   REGISTRATION MODAL
+   ========================================================= */
+
+#registrationModal {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+#registrationModal.active {
+    display: flex;
+}
+
+.registration-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(0, 160, 220, 0.08),
+            transparent 38%
+        ),
+        rgba(0, 4, 8, 0.86);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.registration-box {
+    position: relative;
+    z-index: 2;
+    width: min(535px, 100%);
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding: 32px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 200, 255, 0.30);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7, 23, 37, 0.985),
+            rgba(2, 8, 15, 0.995)
+        );
+    box-shadow:
+        0 35px 90px rgba(0, 0, 0, 0.72),
+        0 0 0 1px rgba(255, 255, 255, 0.018),
+        0 0 55px rgba(0, 180, 255, 0.10);
+    animation: registrationPopup 0.25s ease;
+}
+
+.registration-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 13%;
+    width: 74%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #00c8ff,
+        transparent
+    );
+    box-shadow: 0 0 16px rgba(0, 200, 255, 0.7);
+}
+
+.registration-box::after {
+    content: "";
+    position: absolute;
+    top: -90px;
+    right: -80px;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: rgba(0, 200, 255, 0.055);
+    filter: blur(35px);
+    pointer-events: none;
+}
+
+.registration-box::-webkit-scrollbar {
+    width: 5px;
+}
+
+.registration-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.registration-box::-webkit-scrollbar-thumb {
+    background: #087fa5;
+    border-radius: 10px;
+}
+
+.registration-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.035);
+    color: #8093a3;
+    font-size: 23px;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.registration-close:hover {
+    color: #ffffff;
+    border-color: rgba(0, 200, 255, 0.5);
+    background: rgba(0, 200, 255, 0.10);
+    box-shadow: 0 0 18px rgba(0, 200, 255, 0.08);
+}
+
+.registration-header {
+    position: relative;
+    z-index: 2;
+    padding-right: 50px;
+}
+
+.registration-header > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #00c8ff;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.registration-header > span::before {
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: #00c8ff;
+    box-shadow: 0 0 8px rgba(0, 200, 255, 0.6);
+}
+
+.registration-header h2 {
+    margin-top: 8px;
+    color: #ffffff;
+    font-size: 32px;
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 0 24px rgba(0, 200, 255, 0.08);
+}
+
+.registration-header p {
+    max-width: 420px;
+    margin-top: 10px;
+    color: #7f94a5;
+    font-size: 11px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   SELECTED TOURNAMENT
+   ========================================================= */
+
+.registration-tournament {
+    position: relative;
+    z-index: 2;
+    margin-top: 23px;
+    padding: 17px;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 200, 255, 0.20);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 200, 255, 0.075),
+            rgba(0, 200, 255, 0.018)
+        );
+    box-shadow:
+        inset 0 0 25px rgba(0, 200, 255, 0.025),
+        0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.registration-tournament::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #00c8ff;
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.65);
+}
+
+.registration-tournament > small {
+    display: block;
+    color: #00c8ff;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+.registration-tournament > strong {
+    display: block;
+    margin-top: 6px;
+    padding-right: 5px;
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 1.35;
+    font-weight: 900;
+}
+
+.registration-counter {
+    margin-top: 13px;
+    padding-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.065);
+}
+
+.registration-counter span {
+    color: #718697;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.registration-counter strong {
+    color: #00c8ff;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 12px rgba(0, 200, 255, 0.20);
+}
+
+
+/* =========================================================
+   TEAM COUNTERS INSIDE MODAL
+   ========================================================= */
+
+.registration-team-counters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.registration-team-counters .registration-counter {
+    margin-top: 13px;
+    padding: 11px 12px;
+    display: block;
+    border: 1px solid rgba(255, 255, 255, 0.065);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.registration-team-counters .registration-counter span {
+    display: block;
+}
+
+.registration-team-counters .registration-counter strong {
+    display: block;
+    margin-top: 5px;
+    text-align: right;
+}
+
+
+/* =========================================================
+   TEAM REGISTRATION CHOICE
+   ========================================================= */
+
+.team-registration-choice {
+    position: relative;
+    z-index: 2;
+    margin-top: 17px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 200, 255, 0.13);
+    background: rgba(255, 255, 255, 0.018);
+}
+
+.team-registration-choice-title {
+    text-align: center;
+}
+
+.team-registration-choice-title > span {
+    display: block;
+    color: #00c8ff;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1.6px;
+}
+
+.team-registration-choice-title strong {
+    display: block;
+    margin-top: 4px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.4px;
+}
+
+.team-registration-choice-title p {
+    margin-top: 4px;
+    color: #657b8c;
+    font-size: 9px;
+    line-height: 1.5;
+}
+
+.team-registration-choice-buttons {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.team-registration-choice-btn {
+    min-width: 0;
+    min-height: 78px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    text-align: left;
+    border-radius: 10px;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.team-registration-choice-btn .choice-icon {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    font-size: 17px;
+}
+
+.team-registration-choice-btn .choice-content {
+    min-width: 0;
+}
+
+.team-registration-choice-btn .choice-content strong {
+    display: block;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+.team-registration-choice-btn .choice-content small {
+    display: block;
+    margin-top: 3px;
+    color: #657b8c;
+    font-size: 8px;
+    line-height: 1.35;
+}
+
+.team-registration-choice-btn.captain {
+    border: 1px solid rgba(255, 191, 60, 0.27);
+    background: rgba(255, 191, 60, 0.035);
+    color: #ffd76a;
+}
+
+.team-registration-choice-btn.captain .choice-icon {
+    background: rgba(255, 191, 60, 0.10);
+    border: 1px solid rgba(255, 191, 60, 0.18);
+}
+
+.team-registration-choice-btn.captain:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 191, 60, 0.62);
+    background: rgba(255, 191, 60, 0.08);
+    box-shadow: 0 10px 28px rgba(255, 191, 60, 0.08);
+}
+
+.team-registration-choice-btn.player {
+    border: 1px solid rgba(0, 230, 118, 0.27);
+    background: rgba(0, 230, 118, 0.035);
+    color: #00e676;
+}
+
+.team-registration-choice-btn.player .choice-icon {
+    background: rgba(0, 230, 118, 0.10);
+    border: 1px solid rgba(0, 230, 118, 0.18);
+}
+
+.team-registration-choice-btn.player:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 230, 118, 0.62);
+    background: rgba(0, 230, 118, 0.08);
+    box-shadow: 0 10px 28px rgba(0, 230, 118, 0.08);
+}
+
+.team-registration-choice-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   SELECTED REGISTRATION ROLE
+   ========================================================= */
+
+.registration-role-indicator {
+    position: relative;
+    z-index: 2;
+    margin-top: 16px;
+    padding: 11px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 9px;
+    background: rgba(0, 200, 255, 0.045);
+    border: 1px solid rgba(0, 200, 255, 0.15);
+}
+
+.registration-role-indicator > span {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(0, 200, 255, 0.08);
+    font-size: 16px;
+}
+
+.registration-role-indicator > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.registration-role-indicator small {
+    display: block;
+    color: #617688;
+    font-size: 7px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+}
+
+.registration-role-indicator strong {
+    display: block;
+    margin-top: 2px;
+    color: #00c8ff;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+}
+
+.registration-role-indicator button {
+    min-height: 29px;
+    padding: 5px 9px;
+    border: 1px solid rgba(0, 200, 255, 0.20);
+    border-radius: 6px;
+    background: rgba(0, 200, 255, 0.05);
+    color: #7f94a5;
+    font-size: 7px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.registration-role-indicator button:hover {
+    color: #00c8ff;
+    border-color: rgba(0, 200, 255, 0.45);
+    background: rgba(0, 200, 255, 0.08);
+}
+
+
+/* =========================================================
+   REGISTRATION INFO BOXES
+   ========================================================= */
+
+.registration-info-box {
+    position: relative;
+    z-index: 2;
+    margin-top: 15px;
+    padding: 11px 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    border-radius: 8px;
+    background: rgba(0, 200, 255, 0.035);
+    border: 1px solid rgba(0, 200, 255, 0.10);
+}
+
+.registration-info-box > span {
+    flex-shrink: 0;
+    font-size: 13px;
+}
+
+.registration-info-box p {
+    color: #708596;
+    font-size: 9px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   REGISTRATION FIELDS
+   ========================================================= */
+
+.registration-field {
+    position: relative;
+    z-index: 2;
+    margin-top: 18px;
+}
+
+.registration-field label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+    color: #aebdca;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.registration-field label::before {
+    content: "";
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #00c8ff;
+    box-shadow: 0 0 7px rgba(0, 200, 255, 0.65);
+}
+
+.registration-field label span {
+    color: #526777;
+    font-size: 7px;
+    letter-spacing: 0.8px;
+}
+
+.registration-field input {
+    width: 100%;
+    height: 48px;
+    padding: 0 15px;
+    outline: none;
+    border: 1px solid rgba(0, 200, 255, 0.14);
+    border-radius: 8px;
+    background: rgba(1, 7, 13, 0.94);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.registration-field input::placeholder {
+    color: #526676;
+    font-weight: 500;
+}
+
+.registration-field input:hover {
+    border-color: rgba(0, 200, 255, 0.28);
+}
+
+.registration-field input:focus {
+    border-color: rgba(0, 200, 255, 0.70);
+    background: rgba(2, 12, 20, 0.99);
+    box-shadow:
+        0 0 0 3px rgba(0, 200, 255, 0.055),
+        0 0 18px rgba(0, 200, 255, 0.055);
+}
+
+
+/* =========================================================
+   REGISTRATION MESSAGE
+   ========================================================= */
+
+.registration-message {
+    position: relative;
+    z-index: 2;
+    display: none;
+    margin-top: 16px;
+    padding: 12px 13px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.55;
+}
+
+.registration-message.success {
+    display: block;
+    color: #7df3bb;
+    border: 1px solid rgba(80, 220, 150, 0.22);
+    background: rgba(50, 200, 120, 0.075);
+}
+
+.registration-message.error {
+    display: block;
+    color: #ff8f8f;
+    border: 1px solid rgba(255, 90, 90, 0.22);
+    background: rgba(255, 70, 70, 0.075);
+}
+
+
+/* =========================================================
+   REGISTRATION SUBMIT
+   ========================================================= */
+
+.registration-submit {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    min-height: 49px;
+    margin-top: 20px;
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    box-shadow:
+        0 9px 28px rgba(0, 200, 255, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.20);
+}
+
+.registration-submit:hover {
+    box-shadow:
+        0 13px 35px rgba(0, 200, 255, 0.24),
+        0 0 20px rgba(0, 200, 255, 0.08);
+}
+
+.registration-submit:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    transform: none;
+}
+
+
+/* =========================================================
+   REGISTRATION NOTE
+   ========================================================= */
+
+.registration-note {
+    position: relative;
+    z-index: 2;
+    margin-top: 19px;
+    padding-top: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    border-top: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.registration-note > span {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 200, 255, 0.18);
+    border-radius: 50%;
+    background: rgba(0, 200, 255, 0.045);
+    color: #00c8ff;
+    font-size: 11px;
+}
+
+.registration-note p {
+    color: #5f7485;
+    font-size: 9px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   REGISTRATION ANIMATION
+   ========================================================= */
+
+@keyframes registrationPopup {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.975);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   LEADERBOARD
+   ========================================================= */
+
+.leaderboard {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(0, 200, 255, 0.15);
+    border-radius: 16px;
+    background: rgba(3, 11, 19, 0.9);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.leaderboard table {
+    width: 100%;
+    display: block;
+    border-collapse: collapse;
+}
+
+.leaderboard thead,
+.leaderboard tbody {
+    display: block;
+    width: 100%;
+}
+
+.leaderboard tr {
+    display: grid;
+    grid-template-columns: 90px 1fr 110px 90px 110px 110px;
+    align-items: center;
+    min-height: 56px;
+    padding: 0 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.leaderboard thead tr {
+    background: rgba(0, 200, 255, 0.07);
+    border-bottom: 1px solid rgba(0, 200, 255, 0.12);
+}
+
+.leaderboard th {
+    text-align: left;
+    color: #00c8ff;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.1px;
+}
+
+.leaderboard tbody tr {
+    transition: background 0.2s ease;
+}
+
+.leaderboard tbody tr:hover {
+    background: rgba(0, 200, 255, 0.045);
+}
+
+.leaderboard tbody tr:last-child {
+    border-bottom: none;
+}
+
+.leaderboard td {
+    min-width: 0;
+    color: #c9d5df;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.leaderboard td:nth-child(1) {
+    color: #00c8ff;
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.leaderboard td:nth-child(2) {
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.leaderboard td[colspan] {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #8ea3b5;
+    padding: 18px 0;
+}
+
+.dynamic-tournament-info {
+    margin-top: 18px !important;
+    color: #00c8ff !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   YOUTUBE SEARCH
+   ========================================================= */
+
+.video-search {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto 38px;
+    display: flex;
+    gap: 10px;
+}
+
+#videoSearch {
+    width: 100%;
+    min-width: 0;
+    height: 46px;
+    padding: 0 16px;
+    outline: none;
+    border: 1px solid rgba(0, 200, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(2, 10, 17, 0.9);
+    color: #ffffff;
+    font-size: 13px;
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+#videoSearch::placeholder {
+    color: #647889;
+}
+
+#videoSearch:focus {
+    border-color: rgba(0, 200, 255, 0.65);
+    box-shadow: 0 0 0 3px rgba(0, 200, 255, 0.07);
+}
+
+#searchBtn {
+    flex-shrink: 0;
+    min-width: 110px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   YOUTUBE VIDEO GRID
+   ========================================================= */
+
+.video-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.video-card {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    background: rgba(4, 13, 21, 0.96);
+    border: 1px solid rgba(0, 200, 255, 0.14);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 200, 255, 0.45);
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.42),
+        0 0 25px rgba(0, 190, 255, 0.06);
+}
+
+.video-thumbnail {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #050c13;
+}
+
+.video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.35s ease;
+}
+
+.video-card:hover .video-thumbnail img {
+    transform: scale(1.045);
+}
+
+.youtube-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 52px;
+    height: 52px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 3px;
+    border: 2px solid rgba(0, 200, 255, 0.65);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.72);
+    color: #ffffff;
+    font-size: 18px;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.video-card:hover .youtube-play {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: rgba(0, 160, 210, 0.85);
+}
+
+.video-info {
+    padding: 17px;
+}
+
+.video-info > span {
+    display: block;
+    margin-bottom: 7px;
+    color: #00c8ff;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1.1px;
+}
+
+.video-info h3 {
+    min-height: 45px;
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.45;
+    font-weight: 800;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+}
+
+.video-info p {
+    margin-top: 8px;
+    color: #718697;
+    font-size: 11px;
+}
+
+.video-link,
+.watch-btn {
+    display: flex;
+    width: 100%;
+    min-height: 40px;
+    margin-top: 14px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 200, 255, 0.25);
+    border-radius: 7px;
+    background: rgba(0, 200, 255, 0.07);
+    color: #00c8ff;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.6px;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.video-link:hover,
+.watch-btn:hover {
+    background: #00c8ff;
+    color: #021018;
+}
+
+
+/* =========================================================
+   LOADING / EMPTY STATES
+   ========================================================= */
+
+.empty-state,
+.youtube-loading,
+.youtube-empty {
+    grid-column: 1 / -1;
+    padding: 34px 20px;
+    text-align: center;
+    color: #8ea3b5;
+    font-size: 14px;
+    border: 1px dashed rgba(0, 200, 255, 0.2);
+    border-radius: 14px;
+    background: rgba(3, 11, 19, 0.7);
+}
+
+.youtube-empty h3 {
+    color: #ffffff;
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.leaderboard .empty-state {
+    border: none;
+    border-radius: 0;
+}
+
+
+/* =========================================================
+   COMMUNITY
+   ========================================================= */
+
+.community-card {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    border-radius: 17px;
+    background: linear-gradient(
+        145deg,
+        rgba(6, 18, 29, 0.96),
+        rgba(2, 9, 16, 0.96)
+    );
+    border: 1px solid rgba(0, 200, 255, 0.18);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.32);
+}
+
+.community-card img {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.community-card > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.community-card h3 {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+.community-card p {
+    margin-top: 5px;
+    color: #93a6b7;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    background: #02060b;
+    border-top: 1px solid rgba(0, 200, 255, 0.14);
+}
+
+.footer-content {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 45px 6% 30px;
+    text-align: center;
+}
+
+.footer-content p {
+    margin-top: 10px;
+    color: #8ea3b5;
+    font-size: 13px;
+}
+
+.footer-links {
+    margin-top: 22px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.footer-links a {
+    color: #aebdca;
+    font-size: 13px;
+    font-weight: 700;
+    transition: color 0.25s ease;
+}
+
+.footer-links a:hover {
+    color: #00c8ff;
+}
+
+.footer-bottom {
+    padding: 18px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    text-align: center;
+    color: #607487;
+    font-size: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.developed-by {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 11px;
+    border: 1px solid rgba(0, 200, 255, 0.18);
+    border-radius: 30px;
+    background: rgba(0, 200, 255, 0.045);
+}
+
+.developed-by span {
+    color: #607487;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+}
+
+.developed-by strong {
+    color: #00c8ff;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-shadow: 0 0 12px rgba(0, 200, 255, 0.35);
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+   ========================================================= */
+
+.reveal-ready {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal-ready.active {
+    opacity: 1;
+    transform: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE - 1000px
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .video-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .quick-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero-content {
+        width: 58%;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - 900px
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .menu-btn {
+        display: block;
+    }
+
+    #navMenu {
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        padding: 14px 6% 20px;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        background: rgba(2, 7, 13, 0.97);
+        border-bottom: 1px solid rgba(0, 200, 255, 0.15);
+        backdrop-filter: blur(16px);
+    }
+
+    #navMenu.open,
+    #navMenu.active {
+        display: flex;
+    }
+
+    .hero {
+        padding-top: 105px;
+    }
+
+    .hero-layout {
+        min-height: 510px;
+    }
+
+    .hero-content {
+        width: 65%;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 9vw, 75px);
+    }
+
+    .tournament-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - 700px
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .logo-area img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo-text {
+        font-size: 17px;
+    }
+
+    .section-bg {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .hero {
+        min-height: auto;
+        padding-top: 120px;
+        padding-bottom: 50px;
+    }
+
+    .hero .section-overlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(2, 7, 13, 0.91),
+                rgba(2, 7, 13, 0.60)
+            ),
+            linear-gradient(
+                180deg,
+                rgba(2, 7, 13, 0.42),
+                rgba(2, 7, 13, 0.94)
+            );
+    }
+
+    .hero-layout {
+        min-height: 520px;
+        align-items: flex-end;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 570px;
+        padding-bottom: 15px;
+    }
+
+    .hero h1 {
+        font-size: clamp(45px, 14vw, 68px);
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        justify-content: flex-start;
+    }
+
+    .quick-stats {
+        margin-top: 22px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .stat {
+        min-height: 95px;
+    }
+
+    .stat strong {
+        font-size: 25px;
+    }
+
+    .community-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .community-card > div {
+        width: 100%;
+    }
+
+    .community-card .btn {
+        width: 100%;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .leaderboard {
+        overflow-x: auto;
+    }
+
+    .leaderboard table {
+        min-width: 650px;
+    }
+
+    .tournament-registration {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - 520px
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+    .navbar {
+        height: 70px;
+    }
+
+    #navMenu {
+        top: 70px;
+    }
+
+    .section-bg {
+        padding-top: 100px;
+        padding-bottom: 70px;
+    }
+
+    .hero {
+        padding-top: 105px;
+    }
+
+    .hero-layout {
+        min-height: 480px;
+    }
+
+    .hero-tag {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .hero h1 {
+        font-size: clamp(40px, 13vw, 58px);
+        letter-spacing: 1.5px;
+    }
+
+    .hero-line {
+        margin-top: 17px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .hero p {
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .hero-follow {
+        font-size: 10px;
+    }
+
+    .quick-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat {
+        min-height: 90px;
+        padding: 14px 8px;
+    }
+
+    .stat strong {
+        font-size: 22px;
+    }
+
+    .stat span {
+        font-size: 8px;
+        letter-spacing: 0.6px;
+    }
+
+    .winner-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-search {
+        flex-direction: column;
+    }
+
+    #searchBtn {
+        width: 100%;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+    /* =====================================================
+       TEAM REGISTRATION MOBILE
+       ===================================================== */
+
+    .team-registration-counts {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .team-registration-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .team-registration-choice-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .team-registration-choice-btn {
+        min-height: 70px;
+    }
+
+
+    /* =====================================================
+       REGISTRATION MODAL MOBILE
+       ===================================================== */
+
+    #registrationModal {
+        padding: 12px;
+    }
+
+    .registration-box {
+        width: 100%;
+        padding: 25px 18px 21px;
+        border-radius: 16px;
+        max-height: calc(100vh - 24px);
+    }
+
+    .registration-header {
+        padding-right: 42px;
+    }
+
+    .registration-header h2 {
+        font-size: 26px;
+    }
+
+    .registration-header p {
+        font-size: 10px;
+    }
+
+    .registration-tournament {
+        margin-top: 19px;
+        padding: 15px;
+    }
+
+    .registration-tournament > strong {
+        font-size: 15px;
+    }
+
+    .registration-team-counters {
+        gap: 7px;
+    }
+
+    .registration-team-counters .registration-counter {
+        padding: 10px;
+    }
+
+    .registration-team-counters .registration-counter span {
+        font-size: 8px;
+    }
+
+    .registration-team-counters .registration-counter strong {
+        font-size: 11px;
+    }
+
+    .team-registration-choice {
+        padding: 13px;
+    }
+
+    .team-registration-choice-btn {
+        padding: 11px;
+    }
+
+    .registration-role-indicator {
+        padding: 10px;
+    }
+
+    .registration-field {
+        margin-top: 15px;
+    }
+
+    .registration-field input {
+        height: 46px;
+    }
+
+    .registration-submit {
+        min-height: 47px;
+    }
+
+
+    /* =====================================================
+       MAIN TOURNAMENT REGISTRATION MOBILE
+       ===================================================== */
+
+    .tournament-registration {
+        grid-template-columns: 1fr;
+        gap: 11px;
+        align-items: stretch;
+    }
+
+    .tournament-registration-status {
+        text-align: left;
+    }
+
+    .registration-action-btn {
+        width: 100%;
+        min-height: 43px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - 380px
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .logo-text {
+        font-size: 15px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .hero h2 {
+        font-size: 18px;
+    }
+
+    .quick-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat {
+        min-height: 82px;
+    }
+
+    .team-registration-counts {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-box {
+        padding: 22px 15px 19px;
+    }
+
+    .registration-header h2 {
+        font-size: 24px;
+    }
+
+    .registration-header > span {
+        font-size: 8px;
+    }
+
+    .registration-tournament {
+        padding: 14px;
+    }
+
+    .registration-team-counters {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =========================================================
+   CRUZEO PLAYZ - TEAM REGISTRATION UI
+   ========================================================= */
+
+.team-registration-panel {
+    margin-top: 18px;
+    padding: 16px;
+    border: 1px solid rgba(0, 210, 255, 0.16);
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 210, 255, 0.055),
+            rgba(0, 0, 0, 0.20)
+        );
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.team-registration-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.team-registration-heading span {
+    color: #00d9ff;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 1.4px;
+}
+
+.team-registration-heading small {
+    color: rgba(255, 255, 255, 0.42);
+
+    font-size: 9px;
+    text-align: right;
+}
+
+
+/* =========================================================
+   CAPTAIN / PLAYER OPTIONS
+   ========================================================= */
+
+.team-registration-options {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+.team-registration-option {
+    min-width: 0;
+
+    padding: 11px;
+
+    border-radius: 8px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+}
+
+
+/* =========================================================
+   COUNT
+   ========================================================= */
+
+.team-registration-info {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 8px;
+
+    margin-bottom: 9px;
+}
+
+.team-registration-info span {
+    color:
+        rgba(255, 255, 255, 0.48);
+
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.team-registration-info strong {
+    color: #ffffff;
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   ACTUAL REGISTRATION BUTTON
+   IMPORTANT:
+   .registration-btn IS THE CLASS ACTUALLY USED
+   ========================================================= */
+
+button.registration-btn.registration-open {
+
+    width: 100%;
+    min-height: 40px;
+
+    padding: 9px 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: 7px;
+
+    font-family: inherit;
+
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 0.8px;
+
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* =========================================================
+   CAPTAIN BUTTON
+   First registration option
+   ========================================================= */
+
+.team-registration-option:first-child
+button.registration-btn.registration-open {
+
+    color: #ffd76a;
+
+    border:
+        1px solid
+        rgba(255, 191, 60, 0.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 191, 60, 0.13),
+            rgba(255, 191, 60, 0.035)
+        );
+
+    box-shadow:
+        inset 0 0 20px
+        rgba(255, 191, 60, 0.025);
+}
+
+
+.team-registration-option:first-child
+button.registration-btn.registration-open:hover {
+
+    color: #171000;
+
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(255, 210, 90, 0.95);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd76a,
+            #ffbf3c
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(255, 191, 60, 0.28);
+}
+
+
+/* =========================================================
+   PLAYER BUTTON
+   Second registration option
+   ========================================================= */
+
+.team-registration-option:nth-child(2)
+button.registration-btn.registration-open {
+
+    color: #00e676;
+
+    border:
+        1px solid
+        rgba(0, 230, 118, 0.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 230, 118, 0.12),
+            rgba(0, 230, 118, 0.035)
+        );
+
+    box-shadow:
+        inset 0 0 20px
+        rgba(0, 230, 118, 0.025);
+}
+
+
+.team-registration-option:nth-child(2)
+button.registration-btn.registration-open:hover {
+
+    color: #02150b;
+
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(0, 230, 118, 0.95);
+
+    background:
+        linear-gradient(
+            135deg,
+            #00e676,
+            #00c968
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(0, 230, 118, 0.28);
+}
+
+
+/* =========================================================
+   ARROW
+   ========================================================= */
+
+button.registration-btn.registration-open span {
+
+    font-size: 13px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+button.registration-btn.registration-open:hover span {
+
+    transform:
+        translateX(3px);
+}
+
+
+/* =========================================================
+   CLOSED / FULL
+   ========================================================= */
+
+button.registration-btn.registration-closed,
+button.registration-btn.registration-full {
+
+    width: 100%;
+    min-height: 40px;
+
+    padding: 9px 11px;
+
+    border-radius: 7px;
+
+    color:
+        rgba(255, 255, 255, 0.38);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    font-family: inherit;
+
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 0.8px;
+
+    cursor: not-allowed;
+
+    opacity: 0.65;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .team-registration-panel {
+        padding: 13px;
+    }
+
+    .team-registration-heading {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+    .team-registration-heading small {
+        text-align: left;
+    }
+
+    .team-registration-options {
+
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =========================================================
+   CRUZEO PLAYZ - CHAMPION / RUNNER-UP GLASS CARDS
+   ========================================================= */
+
+/* CHAMPION - GOLD GLASS */
+
+.winner-grid > div:first-child {
+    position: relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 193, 7, 0.16),
+            rgba(255, 255, 255, 0.035)
+        ) !important;
+
+    border: 1px solid
+        rgba(255, 193, 7, 0.48) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 0 24px rgba(255, 193, 7, 0.035),
+        0 0 18px rgba(255, 193, 7, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.winner-grid > div:first-child:hover {
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(255, 210, 70, 0.75) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.10),
+        0 0 24px rgba(255, 193, 7, 0.15);
+}
+
+
+/* Champion label */
+
+.winner-grid > div:first-child span {
+    color: #ffd76a !important;
+}
+
+
+/* Champion name */
+
+.winner-grid > div:first-child strong {
+    color: #fff8df !important;
+
+    text-shadow:
+        0 0 12px rgba(255, 193, 7, 0.12);
+}
+
+
+/* =========================================================
+   RUNNER-UP - SILVER GLASS
+   ========================================================= */
+
+.winner-grid > div:nth-child(2) {
+    position: relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(210, 220, 230, 0.13),
+            rgba(255, 255, 255, 0.035)
+        ) !important;
+
+    border: 1px solid
+        rgba(205, 215, 225, 0.42) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.09),
+        inset 0 0 24px rgba(220, 230, 240, 0.035),
+        0 0 16px rgba(210, 220, 230, 0.06);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.winner-grid > div:nth-child(2):hover {
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(225, 232, 240, 0.70) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 0 22px rgba(210, 220, 230, 0.12);
+}
+
+
+/* Runner-up label */
+
+.winner-grid > div:nth-child(2) span {
+    color: #cbd3dc !important;
+}
+
+
+/* Runner-up name */
+
+.winner-grid > div:nth-child(2) strong {
+    color: #f3f6f8 !important;
+
+    text-shadow:
+        0 0 10px rgba(220, 230, 240, 0.10);
+}
+
+/* =========================================================
+   CRUZEO PLAYZ - FINAL MOBILE RESPONSIVE PASS
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* ---------- GLOBAL ---------- */
+
+    html {
+        scroll-padding-top: 68px;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* ---------- NAVBAR ---------- */
+
+    .navbar {
+        height: 68px;
+        padding: 0 16px;
+    }
+
+    .logo-area {
+        gap: 8px;
+    }
+
+    .logo-area img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .logo-text {
+        font-size: 16px;
+        letter-spacing: 0.7px;
+    }
+
+    .menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+    }
+
+    #navMenu {
+        position: absolute;
+        top: 68px;
+        left: 12px;
+        right: 12px;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        padding: 8px;
+
+        border: 1px solid rgba(0, 200, 255, 0.18);
+        border-radius: 12px;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(5, 18, 29, 0.98),
+                rgba(2, 8, 15, 0.99)
+            );
+
+        box-shadow:
+            0 20px 45px rgba(0, 0, 0, 0.55),
+            0 0 25px rgba(0, 180, 255, 0.06);
+    }
+
+    #navMenu.active {
+        display: flex;
+    }
+
+    #navMenu a {
+        padding: 13px 12px;
+        font-size: 12px;
+        border-radius: 7px;
+    }
+
+    #navMenu a::after {
+        display: none;
+    }
+
+    #navMenu a:hover,
+    #navMenu a.active {
+        background: rgba(0, 200, 255, 0.07);
+    }
+
+
+    /* ---------- COMMON SECTIONS ---------- */
+
+    .section-bg {
+        min-height: auto;
+        padding: 92px 15px 55px;
+    }
+
+    .section-content {
+        width: 100%;
+        max-width: none;
+    }
+
+    .section-heading {
+        margin-bottom: 28px;
+    }
+
+    .section-heading > span {
+        font-size: 9px;
+        letter-spacing: 1.4px;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+        line-height: 1.08;
+    }
+
+    .section-heading p {
+        margin-top: 9px;
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+        min-height: 100svh;
+        padding-top: 88px;
+        padding-bottom: 35px;
+        justify-content: center;
+    }
+
+    .hero-layout {
+        width: 100%;
+        min-height: auto;
+        display: block;
+    }
+
+    .hero-content {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-tag {
+        padding: 6px 11px;
+        font-size: 9px;
+        letter-spacing: 1.1px;
+    }
+
+    .hero h1 {
+        margin-top: 15px;
+        font-size: clamp(42px, 13vw, 62px);
+        line-height: 0.94;
+        letter-spacing: 2px;
+    }
+
+    .hero-line {
+        width: 65px;
+        height: 2px;
+        margin: 17px auto 0;
+    }
+
+    .hero h2 {
+        margin-top: 16px;
+        font-size: 20px;
+        line-height: 1.25;
+    }
+
+    .hero p {
+        max-width: 100%;
+        margin: 12px auto 0;
+        font-size: 12px;
+        line-height: 1.65;
+    }
+
+    .hero-buttons {
+        margin-top: 21px;
+        justify-content: center;
+        gap: 9px;
+    }
+
+    .hero-buttons .btn {
+        min-height: 42px;
+        padding: 10px 15px;
+        font-size: 10px;
+    }
+
+    .hero-follow {
+        justify-content: center;
+        margin-top: 14px;
+        font-size: 9px;
+    }
+
+
+    /* ---------- QUICK STATS ---------- */
+
+    .quick-stats {
+        margin-top: 25px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .stat {
+        min-height: 78px;
+        padding: 13px 8px;
+        border-radius: 10px;
+    }
+
+    .stat strong {
+        font-size: 22px;
+    }
+
+    .stat span {
+        margin-top: 4px;
+        font-size: 8px;
+        letter-spacing: 0.7px;
+    }
+
+
+    /* ---------- TOURNAMENTS ---------- */
+
+    .tournament-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .tournament-card {
+        padding: 17px;
+        border-radius: 13px;
+    }
+
+    .tournament-card h3 {
+        margin-top: 12px;
+        font-size: 20px;
+    }
+
+    .tournament-card .season {
+        font-size: 11px;
+    }
+
+    .winner-grid {
+        margin: 17px 0 15px;
+        gap: 8px;
+    }
+
+    .winner-card {
+        padding: 11px;
+        border-radius: 9px;
+    }
+
+    .winner-card span {
+        font-size: 8px;
+    }
+
+    .winner-card strong {
+        margin-top: 4px;
+        font-size: 14px;
+        word-break: break-word;
+    }
+
+    .tournament-details {
+        min-height: auto;
+        margin-bottom: 14px;
+        font-size: 11px;
+        line-height: 1.55;
+    }
+
+    .tournament-btn {
+        min-height: 40px;
+        font-size: 10px;
+    }
+
+
+    /* ---------- INDIVIDUAL REGISTRATION ---------- */
+
+    .tournament-registration {
+        margin: 15px 0 13px;
+        padding: 12px 0;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .tournament-registration-status {
+        text-align: left;
+    }
+
+    .registration-action-btn {
+        width: 100%;
+        min-width: 0;
+        min-height: 40px;
+        font-size: 9px;
+    }
+
+
+    /* ---------- TEAM REGISTRATION ---------- */
+
+    .team-registration-panel {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 9px;
+    }
+
+    .team-registration-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 11px;
+    }
+
+    .team-registration-heading span {
+        font-size: 9px;
+    }
+
+    .team-registration-heading small {
+        text-align: left;
+        font-size: 8px;
+    }
+
+    .team-registration-options {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .team-registration-option {
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .team-registration-info {
+        margin-bottom: 8px;
+    }
+
+    .team-registration-info span {
+        font-size: 8px;
+    }
+
+    .team-registration-info strong {
+        font-size: 10px;
+    }
+
+    button.registration-btn.registration-open,
+    button.registration-btn.registration-closed,
+    button.registration-btn.registration-full {
+        min-height: 40px;
+        font-size: 8px;
+    }
+
+
+    /* ---------- OLD TEAM REGISTRATION FALLBACK ---------- */
+
+    .team-registration-counts {
+        grid-template-columns: 1fr;
+    }
+
+    .team-registration-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .team-registration-cta-title {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+
+    /* ---------- LEADERBOARD ---------- */
+
+    .leaderboard-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 10px;
+    }
+
+    .leaderboard {
+        min-width: 650px;
+    }
+
+    .leaderboard tr {
+        min-height: 50px;
+        padding: 0 14px;
+    }
+
+    .leaderboard th,
+    .leaderboard td {
+        font-size: 9px;
+    }
+
+
+    /* ---------- YOUTUBE ---------- */
+
+    .youtube-grid,
+    .video-grid,
+    .youtube-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    .youtube-card,
+    .video-card {
+        width: 100%;
+    }
+
+
+    /* ---------- COMMUNITY ---------- */
+
+    .community-content,
+    .community-card {
+        width: 100%;
+    }
+
+    .community-card {
+        padding: 22px 16px;
+    }
+
+
+    /* ---------- REGISTRATION MODAL ---------- */
+
+    #registrationModal {
+        padding: 12px;
+    }
+
+    .registration-box {
+        width: 100%;
+        max-height: calc(100svh - 24px);
+        padding: 20px 16px;
+        border-radius: 15px;
+    }
+
+    .registration-box h2 {
+        font-size: 21px;
+    }
+
+    .registration-box input,
+    .registration-box select {
+        min-height: 42px;
+        font-size: 13px;
+    }
+
+    .registration-box button {
+        min-height: 42px;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+        padding: 28px 15px !important;
+    }
+
+    footer p {
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .navbar {
+        padding: 0 12px;
+    }
+
+    .logo-text {
+        font-size: 14px;
+    }
+
+    .section-bg {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .hero h2 {
+        font-size: 18px;
+    }
+
+    .hero p {
+        font-size: 11px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .quick-stats {
+        gap: 7px;
+    }
+
+    .stat strong {
+        font-size: 20px;
+    }
+
+    .tournament-card {
+        padding: 14px;
+    }
+
+    .winner-card strong {
+        font-size: 12px;
+    }
+
+}
+/* =========================================================
+   CRUZEO PLAYZ - MOBILE POLISH PATCH
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* =====================================================
+       HERO - COMPACT + PROPER CTA POSITION
+       ===================================================== */
+
+    .hero {
+        min-height: auto;
+        padding-top: 82px;
+        padding-bottom: 28px;
+        justify-content: flex-start;
+    }
+
+    .hero-layout {
+        min-height: auto;
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-tag {
+        margin-top: 5px;
+    }
+
+    .hero h1 {
+        margin-top: 12px;
+    }
+
+    .hero-line {
+        margin-top: 13px;
+    }
+
+    .hero h2 {
+        margin-top: 13px;
+    }
+
+    .hero p {
+        margin-top: 9px;
+        max-width: 340px;
+    }
+
+    /* HERO BUTTONS */
+    .hero-buttons {
+        width: 100%;
+        margin-top: 17px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .hero-buttons .btn {
+        flex: 1;
+        max-width: 170px;
+        min-height: 40px;
+        padding: 9px 8px;
+        font-size: 9px;
+        white-space: nowrap;
+    }
+
+    .hero-follow {
+        margin-top: 10px;
+    }
+
+
+    /* =====================================================
+       QUICK STATS - LESS SPACE
+       ===================================================== */
+
+    .quick-stats {
+        width: 100%;
+        margin-top: 18px;
+        gap: 7px;
+    }
+
+    .stat {
+        min-height: 68px;
+        padding: 10px 6px;
+    }
+
+    .stat strong {
+        font-size: 19px;
+    }
+
+    .stat span {
+        font-size: 7px;
+    }
+
+
+    /* =====================================================
+       ALL SECTIONS - REMOVE HUGE GAPS
+       ===================================================== */
+
+    .section-bg {
+        padding-top: 58px;
+        padding-bottom: 35px;
+    }
+
+    .section-heading {
+        margin-bottom: 20px;
+    }
+
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+    .section-heading p {
+        margin-top: 6px;
+        line-height: 1.45;
+    }
+
+
+    /* =====================================================
+       TOURNAMENTS
+       ===================================================== */
+
+    #tournaments {
+        padding-top: 52px;
+        padding-bottom: 30px;
+    }
+
+    .tournament-container {
+        gap: 11px;
+    }
+
+    .tournament-card {
+        padding: 13px;
+        margin: 0;
+    }
+
+    .tournament-card h3 {
+        margin-top: 9px;
+        font-size: 18px;
+    }
+
+    .winner-grid {
+        margin: 12px 0 11px;
+    }
+
+    .tournament-details {
+        margin-bottom: 10px;
+    }
+
+    /* Registration buttons */
+    .tournament-registration {
+        margin: 10px 0 9px;
+        padding: 9px 0;
+        gap: 7px;
+    }
+
+    .team-registration-panel {
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    .team-registration-heading {
+        margin-bottom: 8px;
+    }
+
+    .team-registration-options {
+        gap: 6px;
+    }
+
+    .team-registration-option {
+        padding: 8px;
+    }
+
+
+    /* =====================================================
+       LEADERBOARD - NO MASSIVE EMPTY SPACE
+       ===================================================== */
+
+    #leaderboard {
+        padding-top: 48px;
+        padding-bottom: 30px;
+    }
+
+    .leaderboard-wrapper {
+        margin-top: 8px;
+    }
+
+
+    /* =====================================================
+       YOUTUBE - COMPACT
+       ===================================================== */
+
+    #youtube {
+        padding-top: 48px;
+        padding-bottom: 30px;
+    }
+
+    .youtube-grid,
+    .video-grid,
+    .youtube-container {
+        gap: 10px !important;
+        margin-top: 8px !important;
+    }
+
+    .youtube-card,
+    .video-card {
+        margin: 0 !important;
+    }
+
+    /* Only first 4 videos on mobile */
+    .youtube-grid > *:nth-child(n + 5),
+    .video-grid > *:nth-child(n + 5),
+    .youtube-container > *:nth-child(n + 5) {
+        display: none !important;
+    }
+
+
+    /* =====================================================
+       COMMUNITY - COMPACT
+       ===================================================== */
+
+    #community {
+        padding-top: 48px;
+        padding-bottom: 30px;
+    }
+
+    .community-card {
+        margin-top: 8px;
+        padding: 17px 13px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    footer {
+        margin-top: 0 !important;
+        padding: 22px 12px !important;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .hero-buttons {
+        gap: 6px;
+    }
+
+    .hero-buttons .btn {
+        max-width: none;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 8px;
+    }
+
+    .section-bg {
+        padding-top: 50px;
+        padding-bottom: 28px;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .tournament-card {
+        padding: 11px;
+    }
+
+    #youtube,
+    #leaderboard,
+    #community {
+        padding-top: 42px;
+    }
+}
+/* =========================================================
+   CRUZEO PLAYZ - MOBILE NAV + HERO TAGLINE FIX
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* =====================================================
+       NAVBAR
+       ===================================================== */
+
+    .navbar {
+        height: auto;
+        min-height: 68px;
+        padding: 8px 12px 0;
+        flex-wrap: wrap;
+    }
+
+    .logo-area {
+        min-width: 0;
+        flex: 1;
+        align-items: center;
+    }
+
+    .logo-area img {
+        width: 34px;
+        height: 34px;
+        flex-shrink: 0;
+    }
+
+    .logo-text {
+        font-size: 14px;
+        line-height: 1.1;
+        white-space: nowrap;
+    }
+
+    /* Show the tagline if it exists in navbar */
+    .logo-subtitle,
+    .logo-tagline {
+        display: block !important;
+        font-size: 7px !important;
+        line-height: 1.2;
+        margin-top: 2px;
+        white-space: nowrap;
+        opacity: 0.75;
+    }
+
+
+    /* =====================================================
+       MOBILE NAVIGATION BAR
+       ===================================================== */
+
+    .menu-btn {
+        display: none !important;
+    }
+
+    #navMenu {
+        position: static;
+        order: 3;
+
+        width: calc(100% + 24px);
+        margin-left: -12px;
+
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+
+        gap: 3px;
+
+        padding: 7px 10px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        border: 0;
+        border-top: 1px solid rgba(0, 200, 255, 0.10);
+        border-radius: 0;
+
+        background: rgba(2, 8, 15, 0.92);
+
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    #navMenu::-webkit-scrollbar {
+        display: none;
+    }
+
+    #navMenu a {
+        flex: 0 0 auto;
+
+        display: block;
+
+        padding: 7px 10px;
+
+        font-size: 8px;
+        letter-spacing: 0.5px;
+
+        white-space: nowrap;
+
+        border-radius: 6px;
+    }
+
+    #navMenu a::after {
+        display: none !important;
+    }
+
+
+    /* =====================================================
+       HERO TAGLINE
+       ===================================================== */
+
+    .hero h1 {
+        margin-top: 14px;
+    }
+
+    .hero h2 {
+        display: block !important;
+
+        width: 100%;
+        max-width: 340px;
+
+        margin: 13px auto 0;
+
+        font-size: 17px !important;
+        line-height: 1.3 !important;
+
+        white-space: normal;
+        overflow: visible;
+        opacity: 1;
+    }
+
+    .hero p {
+        margin-top: 9px;
+    }
+
+
+    /* =====================================================
+       HERO STARTS BELOW NAVBAR
+       ===================================================== */
+
+    .hero {
+        padding-top: 30px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .logo-text {
+        font-size: 13px;
+    }
+
+    .logo-subtitle,
+    .logo-tagline {
+        font-size: 6px !important;
+    }
+
+    #navMenu a {
+        padding: 6px 8px;
+        font-size: 7px;
+    }
+
+    .hero h2 {
+        font-size: 16px !important;
+    }
+}
+/* =========================================================
+   CRUZEO PLAYZ - MOBILE LEADERBOARD FINAL
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #leaderboard {
+        padding-top: 42px;
+        padding-bottom: 28px;
+    }
+
+    .leaderboard-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+        margin-top: 10px;
+    }
+
+    .leaderboard {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .leaderboard tr {
+        display: grid !important;
+
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+
+        grid-template-columns:
+            10%
+            25%
+            18%
+            12%
+            17%
+            18% !important;
+
+        padding: 0 6px !important;
+        column-gap: 0 !important;
+
+        box-sizing: border-box !important;
+        align-items: center;
+    }
+
+    .leaderboard th,
+    .leaderboard td {
+        width: auto !important;
+        min-width: 0 !important;
+
+        padding: 0 2px !important;
+        margin: 0 !important;
+
+        box-sizing: border-box !important;
+
+        overflow: hidden !important;
+        white-space: nowrap !important;
+        text-overflow: ellipsis !important;
+
+        text-align: center !important;
+        font-size: 7px !important;
+    }
+
+    .leaderboard th:nth-child(2),
+    .leaderboard td:nth-child(2) {
+        text-align: left !important;
+        padding-left: 3px !important;
+    }
+
+    .leaderboard td:nth-child(1) {
+        font-size: 8px !important;
+        font-weight: 700;
+    }
+
+    .leaderboard td:nth-child(2) {
+        font-size: 8px !important;
+        font-weight: 600;
+    }
+
+    .leaderboard thead tr {
+        min-height: 45px !important;
+    }
+
+    .leaderboard tbody tr {
+        min-height: 52px !important;
+    }
+}
+/* =========================================================
+   CRUZEO PLAYZ - FINAL MOBILE LEADERBOARD FIX
+   IMPORTANT: KEEP THIS AT THE VERY END OF style.css
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* Stop the old 650px / 620px / 560px rules */
+    .leaderboard-wrapper {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    .leaderboard {
+        width: 100%;
+        min-width: 0 !important;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .leaderboard table {
+        display: block;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100%;
+        table-layout: auto;
+    }
+
+    .leaderboard thead,
+    .leaderboard tbody {
+        display: block;
+        width: 100%;
+        min-width: 0;
+    }
+
+    /*
+       IMPORTANT:
+       Use compact columns so PLAYER gets only the
+       remaining space instead of creating a huge gap.
+    */
+    .leaderboard tr {
+        display: grid !important;
+
+        grid-template-columns:
+            32px
+            minmax(0, 1fr)
+            52px
+            42px
+            48px
+            52px;
+
+        width: 100% !important;
+        min-width: 0 !important;
+
+        padding: 0 8px !important;
+        margin: 0;
+
+        gap: 0 !important;
+        align-items: center;
+    }
+
+    .leaderboard th,
+    .leaderboard td {
+        min-width: 0 !important;
+        width: auto !important;
+
+        padding: 0 3px !important;
+
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        font-size: 8px;
+    }
+
+    /* Rank */
+    .leaderboard th:nth-child(1),
+    .leaderboard td:nth-child(1) {
+        text-align: center;
+    }
+
+    /* Player */
+    .leaderboard th:nth-child(2),
+    .leaderboard td:nth-child(2) {
+        text-align: left;
+        padding-left: 5px !important;
+        padding-right: 4px !important;
+    }
+
+    /* Matches / Wins / NRR / Points */
+    .leaderboard th:nth-child(3),
+    .leaderboard td:nth-child(3),
+    .leaderboard th:nth-child(4),
+    .leaderboard td:nth-child(4),
+    .leaderboard th:nth-child(5),
+    .leaderboard td:nth-child(5),
+    .leaderboard th:nth-child(6),
+    .leaderboard td:nth-child(6) {
+        text-align: center;
+    }
+
+    /* Keep player names readable */
+    .leaderboard td:nth-child(2) {
+        font-size: 11px;
+        font-weight: 800;
+    }
+
+    /* Header */
+    .leaderboard th {
+        font-size: 7px;
+        letter-spacing: 0.5px;
+    }
+
+    /* Rank number */
+    .leaderboard td:nth-child(1) {
+        font-size: 11px;
+    }
+
+    /* NRR */
+    .leaderboard td:nth-child(5) {
+        font-size: 8px;
+    }
+
+    /* Points */
+    .leaderboard td:nth-child(6) {
+        font-size: 9px;
+        font-weight: 900;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .leaderboard tr {
+        grid-template-columns:
+            28px
+            minmax(0, 1fr)
+            47px
+            38px
+            44px
+            48px;
+
+        padding-left: 6px !important;
+        padding-right: 6px !important;
+    }
+
+    .leaderboard th,
+    .leaderboard td {
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+    }
+
+    .leaderboard th {
+        font-size: 6.5px;
+    }
+
+    .leaderboard td:nth-child(2) {
+        font-size: 10px;
+    }
+}
+
+
+/* =========================================================
+   END OF CRUZEO PLAYZ STYLE.CSS
+   ========================================================= */

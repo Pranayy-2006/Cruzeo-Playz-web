@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cruzeo Playz | Real Cricket</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+
+    <header class="navbar">
+
+        <a
+            href="#home"
+            class="logo-area"
+        >
+
+            <img
+                src="assets/images/logo.jpeg"
+                alt="Cruzeo Playz"
+            >
+
+            <div class="logo-text">
+                CRUZEO <span>PLAYZ</span>
+            </div>
+
+        </a>
+
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Menu"
+        >
+            ☰
+        </button>
+
+
+        <nav id="navMenu">
+
+            <a
+                href="#home"
+                class="active"
+            >
+                Home
+            </a>
+
+            <a href="#tournaments">
+                Tournaments
+            </a>
+
+            <a href="#leaderboard">
+                Leaderboard
+            </a>
+
+            <a href="#videos">
+                YouTube
+            </a>
+
+            <a href="#community">
+                Community
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HOME
+         ===================================================== -->
+
+    <section
+        id="home"
+        class="hero section-bg home-bg"
+    >
+
+        <div class="section-overlay"></div>
+
+
+        <div class="hero-layout">
+
+            <!-- LEFT SIDE -->
+
+            <div class="hero-content reveal">
+
+                <span class="hero-tag">
+                    REAL CRICKET • COMPETITIVE GAMING
+                </span>
+
+
+                <h1>
+                    CRUZEO <span>PLAYZ</span>
+                </h1>
+
+
+                <div class="hero-line"></div>
+
+
+                <h2>
+                    The official CRUZEO PLAYZ<br>
+                    Real Cricket Hub.
+                </h2>
+
+
+                <p>
+                    Follow tournaments, leaderboards, matches
+                    and the latest Real Cricket gaming content.
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#tournaments"
+                        class="btn primary"
+                    >
+                        EXPLORE TOURNAMENTS <span>→</span>
+                    </a>
+
+
+                    <a
+                        href="https://youtube.com/@cruzeoplayz"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn secondary"
+                    >
+                        WATCH ON YOUTUBE
+                    </a>
+
+                </div>
+
+
+                <div class="hero-follow">
+
+                    <span class="follow-dot"></span>
+
+                    Follow for tournaments, matches & latest updates
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- QUICK STATS -->
+
+        <div class="quick-stats reveal">
+
+            <div class="stat">
+
+                <strong id="matchesPlayed">
+                    1519
+                </strong>
+
+                <span>
+                    MATCHES PLAYED
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong id="matchesWon">
+                    1100
+                </strong>
+
+                <span>
+                    MATCHES WON
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong id="winRate">
+                    69.1%
+                </strong>
+
+                <span>
+                    WIN RATE
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    1K+
+                </strong>
+
+                <span>
+                    YOUTUBE SUBSCRIBERS
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TOURNAMENTS
+         ===================================================== -->
+
+    <section
+        id="tournaments"
+        class="page-section tournament-bg section-bg"
+    >
+
+        <div class="section-overlay"></div>
+
+
+        <div class="section-content reveal">
+
+            <div class="section-heading">
+
+                <span>
+                    COMPETITIVE ARENA
+                </span>
+
+                <h2>
+                    TOURNAMENTS
+                </h2>
+
+                <p>
+                    Compete. Perform. Become a champion.
+                </p>
+
+            </div>
+
+
+            <div
+                id="tournamentContainer"
+                class="tournament-container"
+            >
+
+                <div class="empty-state">
+                    Loading tournaments...
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         REGISTRATION MODAL
+         ===================================================== -->
+
+    <div
+        id="registrationModal"
+        class="registration-modal"
+        aria-hidden="true"
+    >
+
+        <div class="registration-overlay"></div>
+
+
+        <div class="registration-box">
+
+
+            <!-- CLOSE BUTTON -->
+
+            <button
+                type="button"
+                id="closeRegistrationModal"
+                class="registration-close"
+                aria-label="Close registration"
+            >
+                ×
+            </button>
+
+
+
+            <!-- =================================================
+                 REGISTRATION HEADER
+                 ================================================= -->
+
+            <div class="registration-header">
+
+                <span>
+                    CRUZEO PLAYZ
+                </span>
+
+                <h2>
+                    REGISTER NOW
+                </h2>
+
+                <p>
+                    Join the tournament and compete in the
+                    Cruzeo Playz arena.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SELECTED TOURNAMENT
+                 ================================================= -->
+
+            <div class="registration-tournament">
+
+                <small>
+                    TOURNAMENT
+                </small>
+
+
+                <strong id="registrationTournamentName">
+                    Tournament
+                </strong>
+
+
+
+                <!-- INDIVIDUAL COUNTER -->
+
+                <div
+                    class="registration-counter"
+                    id="individualRegistrationCounter"
+                >
+
+                    <span>
+                        Registered Players
+                    </span>
+
+                    <strong id="registrationTournamentCount">
+                        0 / 0
+                    </strong>
+
+                </div>
+
+
+
+                <!-- TEAM COUNTERS -->
+
+                <div
+                    class="registration-team-counters"
+                    id="teamRegistrationCounters"
+                    style="display: none;"
+                >
+
+
+                    <!-- CAPTAIN COUNT -->
+
+                    <div class="registration-counter">
+
+                        <span>
+                            Captains
+                        </span>
+
+                        <strong id="registrationCaptainCount">
+                            0 / 0
+                        </strong>
+
+                    </div>
+
+
+                    <!-- PLAYER COUNT -->
+
+                    <div class="registration-counter">
+
+                        <span>
+                            Players
+                        </span>
+
+                        <strong id="registrationPlayerCount">
+                            0 / 0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TEAM REGISTRATION TYPE SELECTOR
+                 ================================================= -->
+
+            <div
+                id="teamRegistrationChoice"
+                class="team-registration-choice"
+                style="display: none;"
+            >
+
+                <div class="team-registration-choice-title">
+
+                    <span>
+                        TEAM REGISTRATION
+                    </span>
+
+                    <strong>
+                        CHOOSE YOUR ROLE
+                    </strong>
+
+                    <p>
+                        Select whether you want to register
+                        as a captain or as a player.
+                    </p>
+
+                </div>
+
+
+                <div class="team-registration-choice-buttons">
+
+
+                    <!-- CAPTAIN -->
+
+                    <button
+                        type="button"
+                        id="registerAsCaptainBtn"
+                        class="team-registration-choice-btn captain"
+                    >
+
+                        <span class="choice-icon">
+                            👑
+                        </span>
+
+                        <span class="choice-content">
+
+                            <strong>
+                                REGISTER AS CAPTAIN
+                            </strong>
+
+                            <small>
+                                Create & manage your team
+                            </small>
+
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- PLAYER -->
+
+                    <button
+                        type="button"
+                        id="registerAsPlayerBtn"
+                        class="team-registration-choice-btn player"
+                    >
+
+                        <span class="choice-icon">
+                            🏏
+                        </span>
+
+                        <span class="choice-content">
+
+                            <strong>
+                                REGISTER AS PLAYER
+                            </strong>
+
+                            <small>
+                                Join a tournament as a player
+                            </small>
+
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="teamRegistrationChoiceMessage"
+                    class="registration-message"
+                    role="alert"
+                ></div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 REGISTRATION ROLE INDICATOR
+                 ================================================= -->
+
+            <div
+                id="registrationRoleIndicator"
+                class="registration-role-indicator"
+                style="display: none;"
+            >
+
+                <span id="registrationRoleIcon">
+                    👑
+                </span>
+
+                <div>
+
+                    <small>
+                        REGISTRATION TYPE
+                    </small>
+
+                    <strong id="registrationRoleText">
+                        CAPTAIN
+                    </strong>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="changeRegistrationRole"
+                >
+                    CHANGE
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 REGISTRATION FORM
+                 ================================================= -->
+
+            <form id="registrationForm">
+
+
+                <!-- Hidden tournament ID -->
+
+                <input
+                    type="hidden"
+                    id="registrationTournamentId"
+                    name="tournamentId"
+                >
+
+
+                <!-- Hidden tournament type -->
+
+                <input
+                    type="hidden"
+                    id="registrationTournamentType"
+                    name="tournamentType"
+                >
+
+
+                <!-- Hidden registration type -->
+
+                <input
+                    type="hidden"
+                    id="registrationType"
+                    name="registrationType"
+                >
+
+
+
+                <!-- =================================================
+                     TEAM NAME
+                     Only required for Captain registration
+                     ================================================= -->
+
+                <div
+                    class="registration-field"
+                    id="teamNameField"
+                    style="display: none;"
+                >
+
+                    <label for="registrationTeamName">
+                        TEAM NAME
+                    </label>
+
+                    <input
+                        type="text"
+                        id="registrationTeamName"
+                        name="teamName"
+                        placeholder="Enter your team name"
+                        maxlength="50"
+                    >
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PLAYER NAME
+                     ================================================= -->
+
+                <div class="registration-field">
+
+                    <label for="registrationPlayerName">
+                        PLAYER NAME
+                    </label>
+
+                    <input
+                        type="text"
+                        id="registrationPlayerName"
+                        name="playerName"
+                        placeholder="Enter your name"
+                        maxlength="50"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- =================================================
+                     REAL CRICKET USERNAME
+                     ================================================= -->
+
+                <div class="registration-field">
+
+                    <label for="registrationGameUsername">
+                        REAL CRICKET USERNAME
+                    </label>
+
+                    <input
+                        type="text"
+                        id="registrationGameUsername"
+                        name="gameUsername"
+                        placeholder="Enter your Real Cricket username"
+                        maxlength="50"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- =================================================
+                     DISCORD USERNAME
+                     ================================================= -->
+
+                <div class="registration-field">
+
+                    <label for="registrationDiscordUsername">
+
+                        DISCORD USERNAME
+
+                        <span>
+                            OPTIONAL
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="registrationDiscordUsername"
+                        name="discordUsername"
+                        placeholder="Enter your Discord username"
+                        maxlength="50"
+                    >
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CAPTAIN INFO
+                     ================================================= -->
+
+                <div
+                    id="captainRegistrationInfo"
+                    class="registration-info-box"
+                    style="display: none;"
+                >
+
+                    <span>
+                        👑
+                    </span>
+
+                    <p>
+                        As captain, you will be responsible for
+                        creating and managing your tournament team.
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PLAYER INFO
+                     ================================================= -->
+
+                <div
+                    id="playerRegistrationInfo"
+                    class="registration-info-box"
+                    style="display: none;"
+                >
+
+                    <span>
+                        🏏
+                    </span>
+
+                    <p>
+                        As a player, you will register individually
+                        and can be assigned to a team by the
+                        tournament captain/admin.
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     MESSAGE
+                     ================================================= -->
+
+                <div
+                    id="registrationMessage"
+                    class="registration-message"
+                    role="alert"
+                ></div>
+
+
+
+                <!-- =================================================
+                     SUBMIT
+                     ================================================= -->
+
+                <button
+                    type="submit"
+                    id="registrationSubmit"
+                    class="btn primary registration-submit"
+                >
+                    REGISTER NOW
+                </button>
+
+            </form>
+
+
+
+            <!-- =================================================
+                 FOOTER NOTE
+                 ================================================= -->
+
+            <div class="registration-note">
+
+                <span>
+                    ℹ
+                </span>
+
+                <p>
+                    Your registration will be reviewed by
+                    the tournament admin. You will receive
+                    approval after verification.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         LEADERBOARD
+         ===================================================== -->
+
+    <section
+        id="leaderboard"
+        class="page-section leaderboard-bg section-bg"
+    >
+
+        <div class="section-overlay"></div>
+
+
+        <div class="section-content reveal">
+
+            <div class="section-heading">
+
+                <span>
+                    TOP PERFORMERS
+                </span>
+
+                <h2>
+                    LEADERBOARD
+                </h2>
+
+                <p>
+                    The players making their mark in the
+                    Cruzeo Playz arena.
+                </p>
+
+
+                <p
+                    id="leaderboardTournamentInfo"
+                    class="dynamic-tournament-info"
+                ></p>
+
+            </div>
+
+
+
+            <div
+                class="leaderboard"
+                id="leaderboardBox"
+            >
+
+                <div class="empty-state">
+                    Loading leaderboard...
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         YOUTUBE
+         ===================================================== -->
+
+    <section
+        id="videos"
+        class="page-section youtube-bg section-bg"
+    >
+
+        <div class="section-overlay"></div>
+
+
+        <div class="section-content reveal">
+
+            <div class="section-heading">
+
+                <span>
+                    LATEST CONTENT
+                </span>
+
+                <h2>
+                    YOUTUBE
+                </h2>
+
+                <p>
+                    Watch the latest Cruzeo Playz Real Cricket content.
+                </p>
+
+            </div>
+
+
+
+            <div class="video-search">
+
+                <input
+                    type="text"
+                    id="videoSearch"
+                    placeholder="Search videos..."
+                >
+
+
+                <button
+                    id="searchBtn"
+                    class="btn primary"
+                >
+                    SEARCH
+                </button>
+
+            </div>
+
+
+
+            <div
+                class="video-grid"
+                id="videoGrid"
+            >
+
+                <div class="youtube-loading">
+                    Loading latest videos...
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         COMMUNITY
+         ===================================================== -->
+
+    <section
+        id="community"
+        class="page-section community-bg section-bg"
+    >
+
+        <div class="section-overlay"></div>
+
+
+        <div class="section-content reveal">
+
+            <div class="section-heading">
+
+                <span>
+                    JOIN THE COMMUNITY
+                </span>
+
+                <h2>
+                    CRUZEO PLAYZ COMMUNITY
+                </h2>
+
+                <p>
+                    Join the official Cruzeo Playz Discord community
+                    and stay connected.
+                </p>
+
+            </div>
+
+
+
+            <div class="community-card">
+
+                <img
+                    src="assets/icons/discord.jpeg"
+                    alt="Discord"
+                >
+
+
+                <div>
+
+                    <h3>
+                        OFFICIAL DISCORD
+                    </h3>
+
+                    <p>
+                        Tournaments • Matches • Updates • Community
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="https://discord.gg/qe4SnXR5S"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn primary"
+                >
+                    JOIN DISCORD <span>→</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div class="logo-text">
+                CRUZEO <span>PLAYZ</span>
+            </div>
+
+
+            <p>
+                Real Cricket. Competitive Gaming. Community.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#tournaments">
+                    Tournaments
+                </a>
+
+                <a href="#leaderboard">
+                    Leaderboard
+                </a>
+
+                <a href="#videos">
+                    YouTube
+                </a>
+
+                <a href="#community">
+                    Discord
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            <div>
+                © 2026 Cruzeo Playz. All Rights Reserved.
+            </div>
+
+
+            <div class="developed-by">
+
+                <span>
+                    DEVELOPED BY
+                </span>
+
+                <strong>
+                    PRANAY
+                </strong>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
